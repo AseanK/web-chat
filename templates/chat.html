@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+-Live
+{% endblock %}
+
+{% block content %}
+<div class="message-box">
+    <h1>{{room.title}}</h1>
+    <div class="messages" id="messages"></div>
+    <div class="inputs">
+        <input type="text" placeholder="Message" name="message" id="message"/>
+        <button type="button" name="send" id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+{% for msg in messages %}
+<script>createMessage("{{message.name}}", "{{message.message}}");</script>
+{% endfor %}
+
+{% endblock %}

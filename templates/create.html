@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+-Create
+{% endblock %}
+
+{% block content %}
+
+<form method="post" class="create-form">
+    <h1>Create chat room</h1>
+    <div>
+        <label>Title</label>
+        <input type="text" placeholder="Room title" name="title" value="{{ title }}"/>
+    </div>
+    <button type="submit" name="create-room">Create a room</button>
+</form>
+
+{% if error %}
+<h1>{{ error }}</h1>
+{% endif %}
+
+{% endblock %}

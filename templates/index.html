@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+-Home
+{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('login') }}">login</a>
+<a href="{{ url_for('register') }}">register</a>
+<a href="{{ url_for('create_room') }}">create</a>
+
+{% for room in rooms %}
+<a href="{{ url_for('join_room', room_id=room.id) }}">{{ room.title }}</a>
+{% endfor %}
+
+{% if error %}
+<h1>{{ error }}</h1>
+{% endif %}
+
+<h1>{{ current_user.username }}</h1>
+{% endblock %}
